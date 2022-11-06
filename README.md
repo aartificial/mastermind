@@ -1,4 +1,4 @@
-# Mastermind
+# Mastermind - HMP1-MM
 ![Screenshot](screenshot.jpg)
 ## Tech Stack
 [React](https://reactjs.org/),
