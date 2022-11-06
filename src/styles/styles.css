@@ -125,14 +125,14 @@
 
 .modal > h1 {
     float: top;
-    color: var(--text-color);
+    color: var(--title-color);
     text-align: center;
     font-size: 36px;
 }
 
 .modal > h3{
     float: top;
-    color: var(--text-color);
+    color: var(--title-color);
     text-align: center;
     font-size: 24px;
 }
