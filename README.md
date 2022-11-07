@@ -1,4 +1,4 @@
-# Mastermind - HMP1
+# Mastermind - 2022-UDG-MM-HMP1P2
 ![Screenshot](screenshot.jpg)
 ## Tech Stack
 [React](https://reactjs.org/),
