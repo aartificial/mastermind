@@ -1,8 +1,8 @@
-import * as React from 'react';
 import Mastermind from "./components/mastermind";
+import './index.css'
 
 function App() {
-    return <Mastermind/>
+  return <Mastermind/>
 }
 
-export default App;
+export default App

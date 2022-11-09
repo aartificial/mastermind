@@ -73,8 +73,14 @@
     padding: 30px;
 }
 
+.root {
+    min-height: 100vh;
+    padding: 0;
+}
+
 .main {
-    height: 100vh;
+    min-height: 100vh;
+    padding: 0;
     background-color: var(--background);
 }
 
