@@ -1,6 +1,5 @@
+import '../styles/themeswitch.css'
 import React, {useEffect, useState} from "react";
-
-import '../styles/styles.css'
 
 export default function ThemeSwitch() {
     const [isEnabled, setIsEnabled] = useState(true);

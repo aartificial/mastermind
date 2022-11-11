@@ -1,12 +1,16 @@
-import {useState} from "react";
+import "../styles/styles.css"
+import "../styles/playerinfo.css"
+import React, {useState} from "react";
 import {GameStatus} from "../contexts/context";
-import ActiveRow from "./activeRow";
-import EmptyRow from "./emptyRow";
 import {useWindow} from "../hooks/useWindow";
-import UsedRow from "./usedRow";
 import Header from "./header";
 import ThemeSwitch from "./themeswitch";
 import Modal from "./modal";
+import EmptyRow from "./emptyRow";
+import UsedRow from "./usedRow";
+import ActiveRow from "./activeRow";
+import Login from "./login";
+import {generate} from "../services/randomNumberGeneratorService";
 
 const VALID_KEYS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
 const MAX_TURNS = 7
@@ -14,11 +18,14 @@ const NUMBER_LENGTH = 4
 
 export default function Mastermind() {
 
-    const [answer, setAnswer] = useState<string[]>(["1", "2", "3", "4"])
+    const [answer, setAnswer] = useState<string[]>(generate)
     const [currentGuess, setCurrentGuess] = useState<string[]>([])
     const [guesses, setGuesses] = useState<string[][]>([])
     const [turn, setTurn] = useState<number>(0)
-    const [state, setState] = useState<GameStatus>(GameStatus.PLAYING)
+    const [state, setState] = useState<GameStatus>(GameStatus.LOGIN)
+    const [user, setUser] = useState("")
+    const [wins, setWins] = useState<number>(0)
+    const [losses, setLosses] = useState<number>(0)
 
     useWindow('keydown', handleKeyDown)
 
@@ -68,12 +75,14 @@ export default function Mastermind() {
         if (arrayEquals(currentGuess, answer)) {
             setGuesses([...guesses, currentGuess])
             setState(GameStatus.WON)
+            setWins(wins+1)
             console.log("WON")
             return
         }
         if (turn === MAX_TURNS) {
             setGuesses([...guesses, currentGuess])
             setState(GameStatus.LOST)
+            setLosses(losses+1)
             console.log("LOST")
             return
         }
@@ -83,11 +92,28 @@ export default function Mastermind() {
         setCurrentGuess([])
     }
 
+    const handleRestart = () => {
+        setState(GameStatus.PLAYING)
+        setTurn(0)
+        setCurrentGuess([])
+        setGuesses([])
+        setAnswer(generate)
+    }
+
+    const playerinfo = <div className={"playerinfo"}>
+        <h2>Player: {user}</h2>
+        <h4>Wins: {wins}</h4>
+        <h4>Losses: {losses}</h4>
+    </div>
+
     return (
         <div className="main">
             <Header/>
+            {state === GameStatus.LOGIN ? <Login user={user} setState={setState} setUser={setUser} /> : playerinfo}
+
             <ThemeSwitch/>
-            {state !== GameStatus.PLAYING ? <Modal type={state} completedWords={guesses} solution={answer}/> : null}
+            {state === (GameStatus.WON) ? <Modal type={state} completedWords={guesses} solution={answer} handle={handleRestart}/> : null}
+            {state === (GameStatus.LOST) ? <Modal type={state} completedWords={guesses} solution={answer} handle={handleRestart}/> : null}
             <div className="board">
                 {Array.from(Array(MAX_TURNS - turn)).map((_, index) => <EmptyRow key={index}/>)}
                 {guesses.map((value, index) => <UsedRow key={index} guess={value} answer={answer}/>)}

@@ -1,6 +1,6 @@
 import Cell from "./cell";
 import Hint from "./hint";
-import "../styles/styles.css"
+import "../styles/board.css"
 import {HINT} from "../contexts/context";
 
 interface RowProps {

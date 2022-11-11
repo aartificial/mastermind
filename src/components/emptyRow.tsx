@@ -1,3 +1,4 @@
+import "../styles/board.css"
 import Cell from "./cell";
 import Hint from "./hint";
 import {HINT} from "../contexts/context";

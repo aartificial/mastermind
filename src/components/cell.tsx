@@ -1,4 +1,4 @@
-import "../styles/styles.css"
+import "../styles/board.css"
 
 interface CellProps {
     guess: string

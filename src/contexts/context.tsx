@@ -1,4 +1,5 @@
 export const enum GameStatus {
+    LOGIN,
     PLAYING,
     WON,
     LOST
