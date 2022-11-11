@@ -13,7 +13,7 @@ import Login from "./login";
 import {generate} from "../services/randomNumberGeneratorService";
 
 const VALID_KEYS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
-const MAX_TURNS = 7
+const MAX_TURNS = 9
 const NUMBER_LENGTH = 4
 
 export default function Mastermind() {
@@ -102,8 +102,7 @@ export default function Mastermind() {
 
     const playerinfo = <div className={"playerinfo"}>
         <h2>Player: {user}</h2>
-        <h4>Wins: {wins}</h4>
-        <h4>Losses: {losses}</h4>
+        <h4>Wins: {wins} &nbsp;&nbsp; Losses: {losses}</h4>
     </div>
 
     return (

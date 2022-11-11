@@ -22,8 +22,8 @@ export default function ThemeSwitch() {
     }
 
     return <>
-        <div className="theme-container shadow-dark" onClick={switchState}>
-            <img id="theme-icon" src={icon} alt="ERR"/>
+        <div className="theme-container" onClick={switchState}>
+            <img className="theme-icon" src={icon} alt="error"/>
         </div>
     </>
 

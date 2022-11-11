@@ -9,6 +9,7 @@
     --hint-present: #b59f3b;
     --hint-wrong: #3a3a3c;
     --hint-empty: transparent;
+    --modal-background: #363636;
 }
 
 [data-theme='light'] {
@@ -22,4 +23,5 @@
     --hint-present: #c9b458;
     --hint-wrong: #787c7e;
     --hint-empty: transparent;
+    --modal-background: lightgray;
 }

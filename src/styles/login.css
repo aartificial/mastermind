@@ -5,9 +5,8 @@
     background-color: var(--background);
     border-radius: 10px;
     padding: 10px;
-    width: 500px;
-    min-height: 300px;
-
+    width: 250px;
+    min-height: 350px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -22,12 +21,20 @@
     margin: 5%;
 }
 
-.login > h3{
+.login > h3 {
     float: top;
     color: var(--title-color);
     text-align: center;
-    font-size: 24px;
-    margin: 1%;
+    font-size: 22px;
+    margin-top: 30px;
+}
+
+.login > h4 {
+    color: var(--title-color);
+    text-align: center;
+    font-size: 12px;
+    font-weight: normal;
+    margin-top: 30px;
 }
 
 .form {
@@ -36,9 +43,10 @@
 }
 
 .input {
-    border-width: 2px;
+    width: 190px;
+    border-width: 1px;
     border-color: var(--title-color);
-    border-radius: 5px;
+    border-radius: 10px;
     color: black;
     padding: 5px;
     text-align: center;
